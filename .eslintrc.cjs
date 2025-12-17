@@ -58,4 +58,19 @@ module.exports = {
     "no-else-return": 0,
     "new-cap": ["error", { properties: false, capIsNew: false }],
   },
+    settings: {
+    "import/resolver": {
+      node: true,
+      typescript: true,
+    },
+  },
+  rules: {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        packageDir: [path.resolve(__dirname)], 
+        devDependencies: ["**/*.test.ts"],
+      },
+    ],
+  },
 };
