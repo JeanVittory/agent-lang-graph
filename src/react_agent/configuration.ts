@@ -2,8 +2,8 @@ import { Annotation, messagesStateReducer } from "@langchain/langgraph";
 import { BaseMessage } from "@langchain/core/messages";
 import { SYSTEM_PROMPT_TEMPLATE } from "./prompts.js";
 import { RunnableConfig } from "@langchain/core/runnables";
+import { Intent } from "./types/index.js";
 
-type Intent = "conversation" | "scheduled" | "consult" | "cancel";
 
 export const ConfigurationSchema = Annotation.Root({
   systemPromptTemplate: Annotation<string>,

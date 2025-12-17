@@ -1,0 +1,2 @@
+export type Intent = "conversation" | "scheduled" | "consult" | "cancel" | "unknown";
+export type IntentNodes = "conversationNode" | "consultNode" | "scheduledNode" | "cancelNode" | "unknownIntentNode"
