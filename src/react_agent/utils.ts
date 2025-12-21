@@ -1,4 +1,4 @@
-import { initChatModel } from "langchain/chat_models/universal";
+import { initChatModel } from 'langchain/chat_models/universal';
 
 /**
  * Load a chat model from a fully specified name.
@@ -6,7 +6,7 @@ import { initChatModel } from "langchain/chat_models/universal";
  * @returns A Promise that resolves to a BaseChatModel instance.
  */
 export async function loadChatModel(fullySpecifiedName: string) {
-  const index = fullySpecifiedName.indexOf("/");
+  const index = fullySpecifiedName.indexOf('/');
   if (index === -1) {
     return await initChatModel(fullySpecifiedName);
   } else {
@@ -16,15 +16,14 @@ export async function loadChatModel(fullySpecifiedName: string) {
   }
 }
 
-
 export const contentToString = (content: unknown): string => {
-  if (typeof content === "string") return content;
+  if (typeof content === 'string') return content;
 
-    if (Array.isArray(content)) {
+  if (Array.isArray(content)) {
     return content
-      .map((element) => (typeof element?.text === "string" ? element.text : ""))
-      .join("")
+      .map((element) => (typeof element?.text === 'string' ? element.text : ''))
+      .join('')
       .trim();
   }
-  return String(content ?? "").trim();
-}
+  return String(content ?? '').trim();
+};

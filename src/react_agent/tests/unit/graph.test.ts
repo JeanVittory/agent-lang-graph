@@ -1,3 +1,3 @@
-import { it } from "@jest/globals";
+import { it } from '@jest/globals';
 
-it("Test", async () => {});
+it('Test', async () => {});
