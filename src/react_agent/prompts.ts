@@ -1,6 +1,16 @@
-/**
- * Default prompts used by the agent.
- */
+export const TOPIC_GUARD_SYSTEM = `
+You are a strict scope guard for an appointment assistant.
+
+IN SCOPE (allow):
+- Scheduling, rescheduling, consulting, or canceling appointments with Dr. Juan Carlos
+- Asking about availability, times, modality (virtual/in-person), price, location, session duration
+- Greetings / thanks / short courtesy messages (e.g., "hola", "gracias", "ok")
+
+OUT OF SCOPE (block):
+- Any other topics (aviation, racing, betting, coding help, politics, etc.)
+
+Return ONLY JSON that matches the provided schema.
+`;
 
 export const SYSTEM_PROMPT_TEMPLATE = `
     You are an AI agent inside a multi-step workflow.
@@ -15,8 +25,7 @@ export const SYSTEM_PROMPT_TEMPLATE = `
     System time: {system_time}
 `;
 
-
-export const CLASSIFIER_INTENT_PROMPT_AGENT_TEMPLATE =  `
+export const CLASSIFIER_INTENT_PROMPT_AGENT_TEMPLATE = `
     You are an intent analyst for users who want to manage appointments with Dr. Juan Carlos.
 
     Your task is to classify each user message into exactly ONE of the following categories:
@@ -82,7 +91,6 @@ export const CLASSIFIER_INTENT_PROMPT_AGENT_TEMPLATE =  `
     { "intent": "<scheduled|consult|cancel|conversation|unknown>" }
     Output must contain ONLY the JSON object, with no extra keys and no markdown.
 `;
-
 
 export const CONSULT_PROMPT_AGENT_TEMPLATE = `
     ROLE  
@@ -156,4 +164,4 @@ export const CONSULT_PROMPT_AGENT_TEMPLATE = `
     “Somos un consultorio que trabaja en psicoterapia y terapia de pareja.”
 
     All other rules MUST remain fully enforced.
-`
+`;
