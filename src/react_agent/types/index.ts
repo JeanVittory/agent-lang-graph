@@ -1,2 +1,3 @@
-export type Intent = "conversation" | "scheduled" | "consult" | "cancel" | "unknown";
-export type IntentNodes = "conversationNode" | "consultNode" | "scheduledNode" | "cancelNode" | "unknownIntentNode"
+export type Intent = 'conversation' | 'scheduled' | 'consult' | 'cancel' | 'unknown';
+export type ErrorType = 'blocked' | 'error';
+export type GuardrailResult = { ok: false } | { ok: true };
