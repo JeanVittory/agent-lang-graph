@@ -3,6 +3,7 @@ import { BaseMessage } from '@langchain/core/messages';
 import { SYSTEM_PROMPT_TEMPLATE } from './prompts.js';
 import { RunnableConfig } from '@langchain/core/runnables';
 import { ErrorType, Intent } from './types/index.js';
+import { OPEN_AI_MODEL } from './constants/index.js';
 
 export const ConfigurationSchema = Annotation.Root({
   systemPromptTemplate: Annotation<string>,
@@ -13,7 +14,7 @@ export function ensureConfiguration(config: RunnableConfig): typeof Configuratio
   const configurable = config.configurable ?? {};
   return {
     systemPromptTemplate: configurable.systemPromptTemplate ?? SYSTEM_PROMPT_TEMPLATE,
-    model: configurable.model ?? 'gpt-4o-mini',
+    model: configurable.model ?? OPEN_AI_MODEL.SIMPLE_FAST,
   };
 }
 
