@@ -1,17 +1,19 @@
-import { AgentState } from "../configuration.js";
-import { IntentNodes } from "../types/index.js";
+import { AgentState } from '../configuration.js';
+import { ErrorType, Intent } from '../types/index.js';
 
-export function routeByIntentNode(state: typeof AgentState.State): IntentNodes {
-    switch (state.intent) {
-    case "conversation":
-      return "conversationNode";
-    case "consult":
-      return "consultNode";
-    case "scheduled":
-      return "scheduledNode";
-    case "cancel":
-      return "cancelNode";
+export function routeByIntentNode(state: typeof AgentState.State): Intent | ErrorType {
+  switch (state.intent) {
+    case 'conversation':
+      return 'conversation';
+    case 'consult':
+      return 'consult';
+    case 'scheduled':
+      return 'scheduled';
+    case 'cancel':
+      return 'cancel';
+    case 'blocked':
+      return 'blocked';
     default:
-      return "unknownIntentNode";
+      return 'unknown';
   }
 }
